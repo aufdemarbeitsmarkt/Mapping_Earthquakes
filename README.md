@@ -1,7 +1,7 @@
 # Mapping_Earthquakes
 
 ## Overview
-Using Javascript (D3 and Leaflet libraries) to plat data on a Mapbox map, we bilt data visualizations with interactive features, re: earthquakes around the world. 
+Using Javascript (D3 and Leaflet libraries) to plot data on a Mapbox map, build data visualizations with interactive features, re: earthquakes around the world. 
 
 ### Example: 
 
