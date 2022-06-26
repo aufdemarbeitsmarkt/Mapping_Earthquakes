@@ -91,7 +91,6 @@ d3.json(earthquakeData).then(function(data) {
     L.geoJSON(data, {
         // we turn each feature into a circleMarker on the map
         pointToLayer: function(feature, latlng) {
-            console.log(data);
             return L.circleMarker(latlng);
         },
         // set the style for each circleMarker using our styleInfo function
@@ -105,3 +104,30 @@ d3.json(earthquakeData).then(function(data) {
     // then we add the earthquake layer to our map
     earthquakes.addTo(map);
 });
+
+// create a legend control object 
+let legend = L.control({position: 'bottomright'});
+
+legend.onAdd = function () {
+    let div = L.DomUtil.create('div', 'info legend');
+    
+    const magnitudes = [0, 1, 2, 3, 4, 5];
+    const colors = [
+        "#98ee00",
+        "#d4ee00",
+        "#eecc00",
+        "#ee9c00",
+        "#ea822c",
+        "#ea2c2c"
+    ];
+
+    // Looping through our intervals to generate a label with a colored square for each interval.
+   for (var i = 0; i < magnitudes.length; i++) {
+     div.innerHTML +=
+       "<i style='background: " + colors[i] + "'></i> " +
+       magnitudes[i] + (magnitudes[i + 1] ? "&ndash;" + magnitudes[i + 1] + "<br>" : "+");
+  }
+   return div;
+ };
+
+ legend.addTo(map);
