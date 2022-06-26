@@ -38,7 +38,7 @@ let overlays = {
 // which layers are visible.
 L.control.layers(baseMaps, overlays).addTo(map);
 
-// Accessing the Toronto airline routes GeoJSON URL.
+// Accessing the earthquake data
 let earthquakeData = 'https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson';
 
 // this function returns the style data for each of the earthquakes we plot on the map
@@ -74,7 +74,7 @@ function getColor(magnitude) {
     else {
         return '#98ee00';
     }
-}
+};
 
 // this function determines the radius of the earthquake marker based on its magnitude
 // earthquakes with a magnitude of 0 will be plotted with a radius of 1
